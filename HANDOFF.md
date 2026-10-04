@@ -7,6 +7,7 @@ Everything up to "create the Sanity project" is done. The steps below need your 
 | Path | What |
 |---|---|
 | `docs/INVENTORY.md` | Every crawled URL, what it became, content type mapping, forms list |
+| `docs/reference/` | How the old site looks: full-page screenshots (desktop 1280 and mobile 390) of all 57 pages, plus the Drupal theme CSS. The visual target for the move |
 | `crawl/` | Crawler (`crawl.py`), URL index, RSS, file sizes, and the raw HTML snapshot (`raw.tgz`, 229 pages) |
 | `import/patnis.ndjson` | 227 Sanity documents ready for `sanity dataset import` |
 | `import/redirects.json` | 205 redirects (old Drupal paths and `/node/N` → new paths) |
@@ -21,7 +22,7 @@ Checked in this session: `npm run lint`, `tsc`, `next build` (with and without S
 ## Content model (Sanity)
 
 - `siteSettings` (singleton): logo, main menu, footer links, social links, homepage, portal URL
-- `page`: title, path (`skola/steam`), and a list of sections: hero, text, cards, links, documents, article list, branch list, contacts, prices, FAQ, call-to-action, galleries
+- `page`: title, path (`skola/steam`), and a list of sections: HTML block (carried over 1:1), hero, text, cards, links, documents, article list, branch list, contacts, prices, FAQ, call-to-action, galleries
 - `article`: title, date, categories, main image, body, source link, video, documents. URL `/raksts/<slug>`
 - `category`: STEAM, Mācību darbs, Publikācijas medijos, Blogs, Cambridge English, OECD, Atvērtās durvis
 - `branch`: preschool/school location with address, image, contacts, documents. URL is its own path (`pirmsskola/maldugunu-iela`)
@@ -87,14 +88,16 @@ Pages are cached by Next.js and only refetched after a publish, so Sanity API us
 
 ## Content work after import (`import/review.md`)
 
-- **22 hand-coded landing pages** (home, /pirmsskola, /skola, /makslu-skola, /ppms, /playlab, music, art…) were pasted HTML in Drupal. Their text, images, cards and documents are imported, but the layout is flattened into one text section. These get rebuilt with sections during the design pass. Each has a "Migrācijas piezīme" in the Studio.
+- **12 designed landing pages** (home, /pirmsskola, /makslu-skola and its art/music pages, /ppms, /playlab, /kontakti, Ādaži and Gregora iela preschools, Kultūras Patnis Ādažos, Sociālais uzņēmums) had their own HTML, CSS and scripts in Drupal. They are carried over **1:1** as an "HTML bloks" section: same markup, CSS scoped to the page, scripts kept (carousel, dropdowns, scroll animations), files uploaded to Sanity. Checked against `docs/reference/` screenshots; they match. Editors change text in the HTML field, as they did in Drupal. Converting them to structured sections is optional, later work.
+- **10 text pages** (/skola, /par-patni, /skola/7-12, mentorings, pašpārvalde, pasākumi…) had Word/Facebook-pasted formatting. They are now clean text with headings and lists; give each a quick read against its reference screenshot.
 - **8 forms** are now pages with a button to `https://portal.patnis.lv/`. Update the button links when the portal routes exist. Field lists are in `docs/INVENTORY.md`.
 - **Article dates:** 47 came from the old listings/RSS, 101 are approximated from the upload month (`/files/2026-03/`), and 5 have none (the "20xx/20xx mācību gads" reports).
 - `/vakances` is unpublished on the old site (403), but a homepage card links to it.
 
 ## Not done yet (next session)
 
-- Design pass: the frontend is a clean, functional baseline in Patnis colours (cream, green, yellow; Figtree and Source Serif 4), not a designed site.
+- Visual check of every remaining page against `docs/reference/` (articles, lists, branches, galleries use the new components in the old theme's colours and fonts; header and footer reproduce the old theme).
+- A redesign is **not** in scope now; if the school wants one later, see `docs/CLAUDE-CODE-PROMPTS.md`.
 - Sanity Presentation / visual editing (click-to-edit preview).
 - Cookie consent and Google Analytics (`G-N9YZ8RVJNL` and the Ads tag `AW-16843733644` are on the old site).
 - Search (Drupal had none in use).
@@ -106,7 +109,7 @@ npx tsx scripts/mock-sanity.ts &
 SANITY_API_HOST=http://localhost:3333 NEXT_PUBLIC_SANITY_PROJECT_ID=mock npm run dev
 ```
 
-Images don't show in this mode because they only exist after the real import uploads them.
+Uploaded images (articles, galleries, logo) don't show in this mode, because they only exist after the real import. The 1:1 pages still load their images from the old patnis.lv while it is up.
 
 ## Re-crawl (if content changes before go-live)
 

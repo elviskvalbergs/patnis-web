@@ -16,6 +16,8 @@ import path from 'node:path'
 import {JSDOM} from 'jsdom'
 import {Schema} from '@sanity/schema'
 import {htmlToBlocks} from '@portabletext/block-tools'
+import postcss from 'postcss'
+import prefixer from 'postcss-prefix-selector'
 
 const ROOT = path.resolve(__dirname, '../..')
 const CRAWL = path.join(ROOT, 'crawl')
@@ -324,6 +326,79 @@ function fieldVideos(node: Element) {
     .filter((s): s is string => Boolean(s))
 }
 
+// ---------- Hand-coded pages carried over 1:1 ----------
+// Pages whose body ships its own <style> block are kept as HTML + scoped CSS (section `htmlBlock`),
+// so the move looks identical. Converting them to structured sections is a later, optional step.
+const ASSET_ATTRS = ['src', 'data-src', 'poster', 'href']
+
+function legacyBlock(rawBody: Element, slug: string) {
+  const doc = rawBody.ownerDocument
+  // Inline scripts drive carousels, dropdowns and scroll animations; keep them (Cloudflare's email decoder is not needed).
+  const js = [...rawBody.querySelectorAll('script:not([src])')].map((sc) => sc.textContent || '').filter((t) => t.trim()).join('\n;\n')
+  rawBody.querySelectorAll('script, noscript').forEach((e) => e.remove())
+  const walker = doc.createTreeWalker(rawBody, 128)
+  const comments: Node[] = []
+  while (walker.nextNode()) comments.push(walker.currentNode)
+  comments.forEach((c) => c.parentNode?.removeChild(c))
+  rawBody.querySelectorAll('[data-cfemail]').forEach((e) => (e.textContent = decodeCfEmail(e.getAttribute('data-cfemail')!)))
+  rawBody.querySelectorAll('a[href*="/cdn-cgi/l/email-protection#"]').forEach((a) => a.setAttribute('href', 'mailto:' + decodeCfEmail(a.getAttribute('href')!.split('#')[1])))
+
+  // Old-style <!-- --> wrappers inside <style> are not CSS.
+  const css = [...rawBody.querySelectorAll('style')].map((st) => (st.textContent || '').replace(/<!--|-->/g, '')).join('\n')
+  rawBody.querySelectorAll('style').forEach((st) => st.remove())
+
+  // Every reference to an uploaded Drupal file becomes one canonical absolute URL, recorded as an asset.
+  const assets = new Map<string, string>() // canonical url -> asset kind
+  const canon = (raw: string) => {
+    let u: URL
+    try {
+      u = abs(raw.trim())
+    } catch {
+      return raw
+    }
+    if (!isLocal(u) || !decodeURIComponent(u.pathname).startsWith('/sites/default/files/')) return raw
+    const c = originalFile(u.toString())
+    assets.set(c, 'file')
+    return c
+  }
+  rawBody.querySelectorAll('*').forEach((el) => {
+    for (const attr of ASSET_ATTRS) {
+      const v = el.getAttribute(attr)
+      if (v && v.includes('/sites/default/files/')) el.setAttribute(attr, canon(v))
+    }
+    const srcset = el.getAttribute('srcset')
+    if (srcset) el.setAttribute('srcset', srcset.split(',').map((part) => part.trim().replace(/^\S+/, (u) => canon(u))).join(', '))
+    const style = el.getAttribute('style')
+    if (style?.includes('url(')) el.setAttribute('style', style.replace(/url\((['"]?)([^'")]+)\1\)/g, (_m, q, u) => `url(${q}${canon(u)}${q})`))
+  })
+  const scope = 'lg-' + slug.replace(/[^a-z0-9]+/g, '-')
+  let scopedCss = ''
+  try {
+    scopedCss = postcss([
+    prefixer({
+      prefix: '.' + scope,
+      transform: (prefix: string, selector: string, prefixed: string) =>
+        /^(html|body|:root)$/.test(selector) ? prefix : selector.startsWith('html ') || selector.startsWith('body ') ? prefix + selector.replace(/^(html|body)/, '') : prefixed,
+    }),
+    // Pass a parsed root: the plugin reads root.source in prepare(), which a raw string doesn't have yet.
+  ]).process(postcss.parse(css.replace(/url\((['"]?)([^'")]+)\1\)/g, (_m, q, u) => `url(${q}${canon(u)}${q})`)), {from: undefined}).css
+  } catch (e) {
+    review.push(`- page \`/${slug}\`: CSS could not be scoped (${String(e).slice(0, 80)}); stored unscoped, check for clashes.`)
+    scopedCss = css
+  }
+
+  return {
+    _key: key(),
+    _type: 'htmlBlock',
+    label: 'Vecās lapas saturs',
+    html: rawBody.innerHTML.trim(),
+    css: scopedCss,
+    js: js || undefined,
+    scope,
+    assets: [...assets.keys()].map((u) => ({_key: key(), _type: 'htmlAsset', originalUrl: u, file: {_type: 'file', _sanityAsset: `file@${u}`}})),
+  }
+}
+
 // ---------- Path mapping ----------
 const pathMap = new Map<string, string>() // old Drupal path -> new path
 
@@ -517,7 +592,13 @@ for (const [p, kind] of kinds) {
   const sections: any[] = []
   let note: string | undefined
 
-  if (bodyEl) {
+  // clean() above stripped styles/SVGs from `main`; take the untouched body from a fresh parse.
+  const rawBody = ownBody(nodeOf(dom(html)).node)
+  // Only Drupal "landing-page" nodes are designed pages; other pages with <style> are Word/Facebook pastes.
+  if (type === 'landing-page' && rawBody?.querySelector('style')) {
+    sections.push(legacyBlock(rawBody, slug))
+    note = 'Hand-coded page carried over 1:1 as an HTML block. Edit text in the HTML field, or rebuild with sections later.'
+  } else if (bodyEl) {
     hoistMedia(bodyEl)
     const isBespoke = type === 'landing-page' || bodyEl.querySelectorAll('section, [style]').length > 5
     const cardSections = isBespoke ? extractCards(bodyEl) : []
@@ -526,7 +607,10 @@ for (const [p, kind] of kinds) {
     if (blocks.length) sections.push({_key: key(), _type: 'textSection', body: blocks})
     sections.push(...cardSections)
     if (documents.length) sections.push({_key: key(), _type: 'documentList', heading: 'Dokumenti', documents})
-    if (isBespoke) note = 'Imported from a hand-coded HTML page. Text, images, cards and documents were extracted; layout needs to be rebuilt with sections.'
+    if (isBespoke)
+      note = type === 'landing-page'
+        ? 'Landing page without its own CSS: text, images, cards and documents were extracted into sections. Compare with the old page.'
+        : 'Text pasted with inline formatting (Word/Facebook) in the old editor. Formatting was cleaned to plain text, headings and lists; check it reads well.'
   }
   if (node && kind !== 'branch') {
     const docsField = fieldDocuments(node)
@@ -629,7 +713,13 @@ function remap(value: any): any {
   if (Array.isArray(value)) return value.map(remap)
   if (value && typeof value === 'object') {
     for (const k of Object.keys(value)) {
-      if (k === 'href' && typeof value[k] === 'string' && value[k].startsWith('/')) {
+      if (k === 'html' && typeof value[k] === 'string') {
+        value[k] = value[k].replace(/href="(?:https?:\/\/(?:www\.)?patnis\.lv)?(\/[^"#?]*)([^"]*)"/g, (m: string, p: string, rest: string) => {
+          const dp = (() => { try { return decodeURIComponent(p) } catch { return p } })()
+          if (dp.startsWith('/sites/default/files/')) return m
+          return `href="${pathMap.get(dp.replace(/\/$/, '') || '/') || p}${rest}"`
+        })
+      } else if (k === 'href' && typeof value[k] === 'string' && value[k].startsWith('/')) {
         const [p, q] = value[k].split('?')
         value[k] = (pathMap.get(p) || p) + (q ? '?' + q : '')
       } else value[k] = remap(value[k])

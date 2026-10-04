@@ -162,7 +162,37 @@ export const gallerySection = defineType({
   ],
 })
 
-export const sectionTypes = [hero, textSection, card, cardGrid, linkList, documentList, articleList, branchList, contacts, pricing, faq, cta, gallerySection]
+// A hand-coded page carried over 1:1 from Drupal: its own HTML and CSS, scoped under `scope`.
+// Files the HTML references are uploaded as assets; `originalUrl` is swapped for the asset URL at render.
+export const htmlBlock = defineType({
+  name: 'htmlBlock',
+  title: 'HTML bloks (no vecās lapas)',
+  type: 'object',
+  fields: [
+    defineField({name: 'label', title: 'Nosaukums', type: 'string', description: 'Tikai redaktoriem'}),
+    defineField({name: 'html', title: 'HTML', type: 'text', rows: 20}),
+    defineField({name: 'css', title: 'CSS', type: 'text', rows: 10}),
+    defineField({name: 'js', title: 'JavaScript', type: 'text', rows: 6, description: 'Karuseles, izvēlnes u.c. no vecās lapas'}),
+    defineField({name: 'scope', title: 'CSS tvērums', type: 'string', readOnly: true}),
+    defineField({
+      name: 'assets',
+      title: 'Faili',
+      type: 'array',
+      of: [defineArrayMember({
+        type: 'object',
+        name: 'htmlAsset',
+        fields: [
+          defineField({name: 'originalUrl', title: 'Vecā adrese', type: 'string'}),
+          defineField({name: 'file', title: 'Fails', type: 'file'}),
+        ],
+        preview: {select: {title: 'originalUrl'}},
+      })],
+    }),
+  ],
+  preview: {select: {title: 'label'}, prepare: ({title}) => ({title: title || 'HTML bloks', subtitle: 'Pārnests no vecās lapas'})},
+})
+
+export const sectionTypes = [htmlBlock, hero, textSection, card, cardGrid, linkList, documentList, articleList, branchList, contacts, pricing, faq, cta, gallerySection]
 
 // Order shown in the "add section" menu.
-export const sectionMembers = ['hero', 'textSection', 'cardGrid', 'linkList', 'documentList', 'articleList', 'branchList', 'contacts', 'pricing', 'faq', 'cta', 'gallerySection'].map((type) => ({type}))
+export const sectionMembers = ['htmlBlock', 'hero', 'textSection', 'cardGrid', 'linkList', 'documentList', 'articleList', 'branchList', 'contacts', 'pricing', 'faq', 'cta', 'gallerySection'].map((type) => ({type}))

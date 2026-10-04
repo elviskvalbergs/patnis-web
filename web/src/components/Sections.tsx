@@ -2,6 +2,7 @@ import Link from 'next/link'
 import {sanityFetch} from '@/sanity/client'
 import {articleListQuery, branchesQuery} from '@/sanity/queries'
 import {Documents} from './Documents'
+import {HtmlBlock} from './HtmlBlock'
 import {RichText} from './RichText'
 import {SanityImg} from './SanityImg'
 import {SmartLink} from './SmartLink'
@@ -145,6 +146,12 @@ export function Sections({sections, page = 1}: {sections?: Section[]; page?: num
       {sections.map((s) => {
         let inner: React.ReactNode = null
         switch (s._type) {
+          case 'htmlBlock':
+            return (
+              <section key={s._key} className="container-x py-6">
+                <HtmlBlock html={s.html as string} css={s.css as string} js={s.js as string | undefined} scope={s.scope as string} assets={s.assets as {originalUrl?: string; url?: string}[]} />
+              </section>
+            )
           case 'hero':
             return (
               <section key={s._key} className="relative overflow-hidden bg-brand-dark text-white">

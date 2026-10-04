@@ -47,7 +47,8 @@ export default async function CatchAllPage({params, searchParams}: Props) {
   const page = await getPage((await params).slug)
   if (!page) notFound()
   const pageNo = Math.max(1, Number((await searchParams).lapa) || 1)
-  const firstIsHero = page.sections?.[0]?._type === 'hero'
+  // Hero and carried-over Drupal pages bring their own page heading.
+  const firstIsHero = ['hero', 'htmlBlock'].includes(page.sections?.[0]?._type || '')
 
   if (page._type === 'branch') {
     return (

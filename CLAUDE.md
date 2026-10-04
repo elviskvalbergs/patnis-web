@@ -13,6 +13,8 @@ Next.js 16 (App Router) on Vercel, content in Sanity (EU, free plan, public data
 
 ## Rules
 
+- Scope is a 1:1 move of the old site, not a redesign. `docs/reference/` (screenshots + old CSS) is the visual
+  target. Pages with an `htmlBlock` section are carried over verbatim: fix their CSS, never rewrite their content.
 - Never put personal data in Sanity: the dataset is public and uploaded files are public by URL. Forms and anything
   with personas kods, addresses or bank details belong in portal.patnis.lv (separate Next.js + Neon app).
 - All Sanity reads go through `sanityFetch` (cached, tag `sanity`, cleared by `/api/revalidate`). Never fetch per

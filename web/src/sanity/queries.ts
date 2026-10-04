@@ -21,6 +21,7 @@ const download = `{_key, title, url, "fileUrl": file.asset->url, "size": file.as
 
 const sections = `sections[]{
   ...,
+  _type == "htmlBlock" => {assets[]{originalUrl, "url": file.asset->url}},
   _type == "textSection" => {body${richText}},
   _type == "hero" => {buttons[]{_key, ${linkFields}}},
   _type == "cta" => {buttons[]{_key, ${linkFields}}},

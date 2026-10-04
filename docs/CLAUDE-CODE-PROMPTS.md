@@ -47,55 +47,58 @@ SANITY_PROJECT_ID = <id>
 ## 2. You (browser, ~5 min)
 
 - Sanity → API → Webhooks: create the two webhooks Claude printed (revalidate + redeploy on redirects).
-- Sanity → Members: invite the school's editors once the design is approved, not before.
-- DNS switch to Vercel only after the design run and content review.
+- Sanity → Members: invite the school's editors once the move check is approved.
+- DNS switch to Vercel only after the move check (section 4) and the school's OK on the preview URL.
 
 ## 3. Optional: Sanity MCP for Claude Code
 
-This lets Claude read and edit content directly, which the landing-page rebuild in the design run needs:
+This lets Claude read and edit content directly, which is useful for fixing content after the move (and for a
+redesign later):
 
 ```bash
 claude mcp add --transport http sanity https://mcp.sanity.io
 ```
 
-Then run `/mcp` in Claude Code to log in. Without it, Claude can still write content with the Sanity CLI
-(`npx sanity documents create`), using your CLI login. No API tokens are needed for either route.
-Check the current MCP URL in Sanity's docs if this one fails.
+Then run `/mcp` in Claude Code to log in. Without it, Claude can still write content with the Sanity CLI,
+using your CLI login. No API tokens are needed for either route. Check the current MCP URL in Sanity's docs if
+this one fails.
 
-## 4. Design run (prompt)
+## 4. Move check (prompt): the scope the school asked for
 
-Run after the import, so the design uses real content and images. Get 2–3 reference sites the school likes first.
+The look is already defined: 12 designed pages are carried over 1:1, and the header and footer reproduce the
+old theme. This run makes every page match the old site and fixes what doesn't. Run it after the import.
 
 ```text
-Design run for patnis-web. Read CLAUDE.md, HANDOFF.md, docs/INVENTORY.md and import/review.md first.
+Move check for patnis-web. The school asked for a move, not a redesign: the new site must look and work
+like the old one. Read CLAUDE.md, HANDOFF.md and import/review.md first.
 
-Audience: parents choosing a preschool, school or arts school in Riga/Ādaži; secondary: current parents
-looking for documents and news. Main goal: get parents to "Pieteikties" (applications go to portal.patnis.lv).
-Brand: existing logo, cream #fff8ee, greens #3b6b57/#2a5e4a, yellow #f1b01d, coral #ff9068, Figtree +
-Source Serif 4. References the school likes: <urls>.
+Visual target: docs/reference/desktop/*.jpg and docs/reference/mobile/*.jpg (old site, full-page screenshots),
+docs/reference/css/ (old Drupal theme CSS), crawl/raw.tgz (old HTML).
 
-Phase 1, directions (stop for my choice):
-- Write docs/DESIGN.md: audience, goals, tone, page types, section inventory.
-- Make 3 distinct homepage directions as static HTML mockups using real content from Sanity
-  (real headlines, cards, photos), desktop and mobile. Screenshot each. Recommend one and say why.
+For every page in docs/reference/: screenshot the new page (npm run dev, Playwright, 1280 and 390 wide,
+full page, scroll to the bottom first so scroll animations fire) and compare it side by side with the
+reference. List differences in docs/MOVE-CHECK.md (page, difference, fix), then fix them:
+- HTML-block pages: fix scoped CSS or the legacy baseline in globals.css; never rewrite their content.
+- Other pages (articles, listings, branches, galleries, text pages): adjust the components in
+  src/components/ so they match the old theme's typography, spacing and widths.
+- Content problems (cleaned Word pastes, wrong dates, missing images): fix in Sanity.
+Then check links: crawl the new site locally and report any 404 or link that still points to the old domain.
+Finish with npm run lint, tsc, build; push to branch `move-check` for a Vercel preview URL.
+```
 
-Phase 2, build the chosen direction:
-- Turn it into design tokens (globals.css @theme) and section components. Add section types the old
-  landing pages need (e.g. stats strip, day schedule/timeline for /ppms, programme cards with prices,
-  team grid, image+text split, video). Every new section gets a Sanity schema, query fields and renderer.
-- Rebuild the 22 flagged landing pages (import/review.md, "hand-coded") as structured sections.
-  Source: crawl/raw.tgz (old HTML) + current Sanity content. Write via the Sanity MCP or CLI, one page at a
-  time; clear migrationNote when a page is done. Keep all text; don't invent content.
-- Header with dropdown menus per division, mobile menu, footer with contacts per division.
-- After each page: Playwright screenshots desktop 1280 and mobile 390, compare with the old page,
-  fix spacing/hierarchy issues before moving on.
+## 5. Redesign (later, only if the school wants it)
 
-Phase 3, checks:
-- Lighthouse (performance, accessibility ≥ 95), keyboard navigation, alt texts, contrast.
-- npm run lint, tsc, build. Push to a branch `design` so Vercel gives me a preview URL for the school.
+```text
+Redesign run for patnis-web. Read CLAUDE.md, HANDOFF.md, docs/INVENTORY.md and docs/reference/ first.
+The current look (docs/reference) is the starting point, not a constraint. Audience: parents choosing a
+preschool, school or arts school; goal: "Pieteikties" (applications go to portal.patnis.lv).
+
+Phase 1: write docs/DESIGN.md and 3 homepage directions as static mockups with real content; stop for my choice.
+Phase 2: turn the chosen direction into tokens and structured section types (Sanity schema + query + component
+for each), then rebuild the 12 HTML-block pages as structured sections one at a time, keeping all text.
+Phase 3: Lighthouse/accessibility, lint, tsc, build; push to a branch for a Vercel preview.
 ```
 
 Tips:
-- Keep the design run on a branch; every push gets its own Vercel preview URL you can send to the school.
-- Do Phase 1 in one session and Phase 2 in a fresh one: the mockups and DESIGN.md carry the decisions forward.
-- Content edits the school makes in the Studio during the design run are fine; schema changes go through Claude.
+- Each branch push gets its own Vercel preview URL you can send to the school.
+- Content edits the school makes in the Studio during either run are fine; schema changes go through Claude.
