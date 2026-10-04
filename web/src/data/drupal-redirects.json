@@ -1,0 +1,1027 @@
+[
+  {
+    "source": "/node/345",
+    "destination": "/",
+    "permanent": true
+  },
+  {
+    "source": "/node/323",
+    "destination": "/pirmsskola",
+    "permanent": true
+  },
+  {
+    "source": "/node/40",
+    "destination": "/skola",
+    "permanent": true
+  },
+  {
+    "source": "/node/328",
+    "destination": "/makslu-skola",
+    "permanent": true
+  },
+  {
+    "source": "/node/334",
+    "destination": "/makslu-skola/interesu-izglitiba",
+    "permanent": true
+  },
+  {
+    "source": "/node/333",
+    "destination": "/kontakti",
+    "permanent": true
+  },
+  {
+    "source": "/kulturas_patnis_adazos",
+    "destination": "/kulturas-patnis-adazos",
+    "permanent": true
+  },
+  {
+    "source": "/node/346",
+    "destination": "/kulturas-patnis-adazos",
+    "permanent": true
+  },
+  {
+    "source": "/node/339",
+    "destination": "/ppms",
+    "permanent": true
+  },
+  {
+    "source": "/node/329",
+    "destination": "/makslu-skola/maksla",
+    "permanent": true
+  },
+  {
+    "source": "/node/9",
+    "destination": "/pirmsskola/pieteiksanas",
+    "permanent": true
+  },
+  {
+    "source": "/node/41",
+    "destination": "/skola/pieteiksanas",
+    "permanent": true
+  },
+  {
+    "source": "/node/33",
+    "destination": "/par-patni",
+    "permanent": true
+  },
+  {
+    "source": "/node/313",
+    "destination": "/raksts/steam-olimpiade-2026gada-noslegusies-ar-lieliskiem-rezultatiem",
+    "permanent": true
+  },
+  {
+    "source": "/node/35",
+    "destination": "/buj",
+    "permanent": true
+  },
+  {
+    "source": "/node/36",
+    "destination": "/personas-datu-aizsardziba",
+    "permanent": true
+  },
+  {
+    "source": "/node/34",
+    "destination": "/sikdatnes",
+    "permanent": true
+  },
+  {
+    "source": "/node/364",
+    "destination": "/raksts/vai-latvija-berni-joprojam-macas-atzimei-nevis-zinasanam-0",
+    "permanent": true
+  },
+  {
+    "source": "/node/347",
+    "destination": "/pirmsskola/gregora-iela",
+    "permanent": true
+  },
+  {
+    "source": "/node/8",
+    "destination": "/pirmsskola/maldugunu-iela",
+    "permanent": true
+  },
+  {
+    "source": "/node/5",
+    "destination": "/pirmsskola/ziedondarzs",
+    "permanent": true
+  },
+  {
+    "source": "/node/235",
+    "destination": "/pirmsskola/spargelitis",
+    "permanent": true
+  },
+  {
+    "source": "/node/350",
+    "destination": "/pirmsskola/adazos",
+    "permanent": true
+  },
+  {
+    "source": "/node/335",
+    "destination": "/playlab",
+    "permanent": true
+  },
+  {
+    "source": "/node/42",
+    "destination": "/skola/ligums",
+    "permanent": true
+  },
+  {
+    "source": "/node/359",
+    "destination": "/raksts/patnis-cambridge-english-preperation-centre-2627mg",
+    "permanent": true
+  },
+  {
+    "source": "/node/360",
+    "destination": "/raksts/2627macg-vai-macities-var-ari-meza-klase",
+    "permanent": true
+  },
+  {
+    "source": "/node/77",
+    "destination": "/skola/sadarbibas-partneri",
+    "permanent": true
+  },
+  {
+    "source": "/node/69",
+    "destination": "/skola/metodiskais-darbs",
+    "permanent": true
+  },
+  {
+    "source": "/node/72",
+    "destination": "/skola/mentorings",
+    "permanent": true
+  },
+  {
+    "source": "/node/165",
+    "destination": "/skola/skolas-padome",
+    "permanent": true
+  },
+  {
+    "source": "/node/78",
+    "destination": "/skola/pasparvalde",
+    "permanent": true
+  },
+  {
+    "source": "/node/117",
+    "destination": "/skola/skolas-soma",
+    "permanent": true
+  },
+  {
+    "source": "/node/73",
+    "destination": "/skola/attalinatas-macibas",
+    "permanent": true
+  },
+  {
+    "source": "/node/284",
+    "destination": "/skola/kiva",
+    "permanent": true
+  },
+  {
+    "source": "/node/311",
+    "destination": "/raksts/atverto-durvju-dienas-jaunajai-20262027macibu-gada-7klasei-noslegusas",
+    "permanent": true
+  },
+  {
+    "source": "/node/75",
+    "destination": "/skola/patnis-tv",
+    "permanent": true
+  },
+  {
+    "source": "/skola/pasākumi",
+    "destination": "/skola/pasakumi",
+    "permanent": true
+  },
+  {
+    "source": "/node/74",
+    "destination": "/skola/pasakumi",
+    "permanent": true
+  },
+  {
+    "source": "/node/70",
+    "destination": "/skola/konkursiunolimpiades",
+    "permanent": true
+  },
+  {
+    "source": "/node/67",
+    "destination": "/skola/ekoskola",
+    "permanent": true
+  },
+  {
+    "source": "/node/180",
+    "destination": "/raksts/pisa-2022-pirmo-rezultatu-pazinosanas-pasakums",
+    "permanent": true
+  },
+  {
+    "source": "/node/76",
+    "destination": "/skola/erasmus",
+    "permanent": true
+  },
+  {
+    "source": "/node/68",
+    "destination": "/skola/absolventi",
+    "permanent": true
+  },
+  {
+    "source": "/node/1",
+    "destination": "/skola/1-6-klase",
+    "permanent": true
+  },
+  {
+    "source": "/node/2",
+    "destination": "/skola/7-12",
+    "permanent": true
+  },
+  {
+    "source": "/node/330",
+    "destination": "/makslu-skola/muzika",
+    "permanent": true
+  },
+  {
+    "source": "/node/37",
+    "destination": "/par-patni/vizija-un-merki",
+    "permanent": true
+  },
+  {
+    "source": "/node/38",
+    "destination": "/par-patni/vesture",
+    "permanent": true
+  },
+  {
+    "source": "/node/39",
+    "destination": "/par-patni/fakti",
+    "permanent": true
+  },
+  {
+    "source": "/node/312",
+    "destination": "/raksts/steam-3klase-pieredzes-apmaina-lietuva-siaures-licejus",
+    "permanent": true
+  },
+  {
+    "source": "/node/301",
+    "destination": "/raksts/steam-konference",
+    "permanent": true
+  },
+  {
+    "source": "/node/270",
+    "destination": "/raksts/steam-1klase-ka-petit-visumu",
+    "permanent": true
+  },
+  {
+    "source": "/node/267",
+    "destination": "/raksts/steam-olimpiade",
+    "permanent": true
+  },
+  {
+    "source": "/node/265",
+    "destination": "/raksts/steam-robo-skola",
+    "permanent": true
+  },
+  {
+    "source": "/node/264",
+    "destination": "/raksts/steam-konkurss",
+    "permanent": true
+  },
+  {
+    "source": "/node/262",
+    "destination": "/raksts/steam-1-6-klasu-skolenu-sacensibas",
+    "permanent": true
+  },
+  {
+    "source": "/node/261",
+    "destination": "/raksts/steam-atvertas-durvis-0",
+    "permanent": true
+  },
+  {
+    "source": "/node/254",
+    "destination": "/raksts/steam-sadarbiba-ar-futurimo-decembri",
+    "permanent": true
+  },
+  {
+    "source": "/node/252",
+    "destination": "/raksts/steam-apvieno-dizainu-un-biologiju",
+    "permanent": true
+  },
+  {
+    "source": "/node/246",
+    "destination": "/raksts/steam-sadarbiba-ar-futurimo",
+    "permanent": true
+  },
+  {
+    "source": "/node/245",
+    "destination": "/raksts/steam-2425macibu-gada",
+    "permanent": true
+  },
+  {
+    "source": "/node/226",
+    "destination": "/raksts/steam-gada-nosleguma-konference",
+    "permanent": true
+  },
+  {
+    "source": "/node/222",
+    "destination": "/raksts/steam-projekts-1klase-gaisma-un-skana",
+    "permanent": true
+  },
+  {
+    "source": "/node/201",
+    "destination": "/raksts/steam-projektu-apskats",
+    "permanent": true
+  },
+  {
+    "source": "/node/196",
+    "destination": "/raksts/steam-projekts-1klasei-sadarbiba-ar-getlini-eko",
+    "permanent": true
+  },
+  {
+    "source": "/node/177",
+    "destination": "/raksts/steam-istenosanas-soli-no-augusta-lidz-maijam",
+    "permanent": true
+  },
+  {
+    "source": "/node/175",
+    "destination": "/raksts/steam-istenojums-1ceturksni",
+    "permanent": true
+  },
+  {
+    "source": "/node/174",
+    "destination": "/raksts/steam-skolina-toposajiem-pirmklasniekiem",
+    "permanent": true
+  },
+  {
+    "source": "/node/363",
+    "destination": "/raksts/vai-latvija-berni-joprojam-macas-atzimei-nevis-zinasanam",
+    "permanent": true
+  },
+  {
+    "source": "/node/362",
+    "destination": "/raksts/no-tiktok-lidz-velesanu-urnai-ka-jauniesiem-izdarit-savu-izveli-0",
+    "permanent": true
+  },
+  {
+    "source": "/node/324",
+    "destination": "/raksts/aptauja-skolas-videi-ir-izskirosa-loma-skolenu-sekmes",
+    "permanent": true
+  },
+  {
+    "source": "/node/317",
+    "destination": "/raksts/kapec-latvijai-nepieciesams-jauns-izglitibas-likums",
+    "permanent": true
+  },
+  {
+    "source": "/node/234",
+    "destination": "/raksts/ticiet-pedagogi-ir-gatavi-jaunam-idejam",
+    "permanent": true
+  },
+  {
+    "source": "/node/204",
+    "destination": "/raksts/privatskolu-finansesana-kas-mainisies-lidz-ar-skolu-reformu",
+    "permanent": true
+  },
+  {
+    "source": "/node/203",
+    "destination": "/raksts/ka-turpmak-macit-matematiku-skola-pavisam-citadi-ka-agrak-vai-tomer-ka-senos-laikos",
+    "permanent": true
+  },
+  {
+    "source": "/node/202",
+    "destination": "/raksts/portrets-patnis-dibinataja-zane-ozola",
+    "permanent": true
+  },
+  {
+    "source": "/node/185",
+    "destination": "/raksts/anita-muizniece-skolotajiem-ir-jabut-tiesibam-ka-noverst-likumparkapumus-skolas",
+    "permanent": true
+  },
+  {
+    "source": "/node/184",
+    "destination": "/raksts/patna-absolventa-stasts-jagrs-teica-agentam-mums-vinu-vajag-latvijas-netalantiga-hokejista",
+    "permanent": true
+  },
+  {
+    "source": "/node/178",
+    "destination": "/raksts/patna-ekoskola-viesojas-latvijas-radio-2-ricibu-dienas-2023",
+    "permanent": true
+  },
+  {
+    "source": "/node/176",
+    "destination": "/raksts/vidusskolas-patnis-matematikas-skolotajs-aleksandrs-vorobjovs-raidijuma-aizliegtais",
+    "permanent": true
+  },
+  {
+    "source": "/node/161",
+    "destination": "/raksts/vidusskolas-patnis-direktore-esam-noilgojusies-pec-skolas",
+    "permanent": true
+  },
+  {
+    "source": "/node/159",
+    "destination": "/raksts/astra-rubene-ka-berni-var-macities-pienemt-atskirigo-caur-makslu",
+    "permanent": true
+  },
+  {
+    "source": "/node/158",
+    "destination": "/raksts/anita-muizniece-skeptiska-par-skolu-tikla-reformas-kriterijiem",
+    "permanent": true
+  },
+  {
+    "source": "/node/157",
+    "destination": "/raksts/brali-un-masas-un-makslu-skolas-kulturas-patnis-audzeknu-makslas-darbu-izstade-akropole-riga",
+    "permanent": true
+  },
+  {
+    "source": "/node/156",
+    "destination": "/raksts/anita-muizniece-steam-skolam-nakotne-bus-izskirosa-loma",
+    "permanent": true
+  },
+  {
+    "source": "/node/154",
+    "destination": "/raksts/kada-ir-berna-fiziskajai-garigajai-un-intelektualajai-attistibai-labveliga-vide",
+    "permanent": true
+  },
+  {
+    "source": "/node/152",
+    "destination": "/raksts/radosums-kritiski-svariga-prasme-lai-konkuretu-nakotnes-darba-tirgu",
+    "permanent": true
+  },
+  {
+    "source": "/node/150",
+    "destination": "/raksts/julija-lukjanovica-algoritmiska-domasana-un-lasitprasme-datorika-maziem-berniem-nav-tikai",
+    "permanent": true
+  },
+  {
+    "source": "/node/361",
+    "destination": "/raksts/no-tiktok-lidz-velesanu-urnai-ka-jauniesiem-izdarit-savu-izveli",
+    "permanent": true
+  },
+  {
+    "source": "/node/296",
+    "destination": "/raksts/patnis-uzsak-personalizetas-macisanas-ieviesanu",
+    "permanent": true
+  },
+  {
+    "source": "/node/162",
+    "destination": "/raksts/vidusskolas-patnis-direktore-esam-noilgojusies-pec-skolas-0",
+    "permanent": true
+  },
+  {
+    "source": "/node/160",
+    "destination": "/raksts/vasaras-brivlaiks-vel-nav-beidzies-tacu-daudzas-privatas-vidusskola-patnis-saimes-gimenes",
+    "permanent": true
+  },
+  {
+    "source": "/node/153",
+    "destination": "/raksts/projektos-balstita-macisanas-uzvaras-gajiens-musdienigas-bet-kvalitativas-izglitibas",
+    "permanent": true
+  },
+  {
+    "source": "/node/151",
+    "destination": "/raksts/cela-uz-steam-skolu-iespeju-nodrosinasana-skoleniem-izmantojot-projektos-balstitu-macisanos",
+    "permanent": true
+  },
+  {
+    "source": "/node/144",
+    "destination": "/raksts/berns-grib-atvert-visas-durtinas-apgriezt-katru-akmeni-ka-nenokaut-berna-dabisko-interesi",
+    "permanent": true
+  },
+  {
+    "source": "/node/143",
+    "destination": "/raksts/ja-macisimies-ka-roboti-nakotne-stradasim-robotu-laba",
+    "permanent": true
+  },
+  {
+    "source": "/darbinieks/ieva-haselbauma",
+    "destination": "/kontakti",
+    "permanent": true
+  },
+  {
+    "source": "/taxonomy/term/8",
+    "destination": "/kontakti",
+    "permanent": true
+  },
+  {
+    "source": "/taxonomy/term/6",
+    "destination": "/kontakti",
+    "permanent": true
+  },
+  {
+    "source": "/taxonomy/term/5",
+    "destination": "/kontakti",
+    "permanent": true
+  },
+  {
+    "source": "/node/303",
+    "destination": "/raksts/cambridge-english-pieteiksanas-20252026mg-eksamenam",
+    "permanent": true
+  },
+  {
+    "source": "/node/302",
+    "destination": "/raksts/cambridge-english-patnis-preparation-centre",
+    "permanent": true
+  },
+  {
+    "source": "/node/279",
+    "destination": "/raksts/cambridge-english-rezultati-2425macibu-gada",
+    "permanent": true
+  },
+  {
+    "source": "/node/247",
+    "destination": "/raksts/cambridge-english-eksameni-20242025macgada",
+    "permanent": true
+  },
+  {
+    "source": "/node/231",
+    "destination": "/raksts/cambridge-english-eksamenu-rezultati-2024gada",
+    "permanent": true
+  },
+  {
+    "source": "/node/198",
+    "destination": "/raksts/cambridge-english-eksameni-patni-jau-aprili",
+    "permanent": true
+  },
+  {
+    "source": "/node/181",
+    "destination": "/raksts/baltic-council-parstavji-patni",
+    "permanent": true
+  },
+  {
+    "source": "/node/169",
+    "destination": "/raksts/cambridge-english-2324mg",
+    "permanent": true
+  },
+  {
+    "source": "/node/168",
+    "destination": "/raksts/cambridge-english-panakumi-2223mg",
+    "permanent": true
+  },
+  {
+    "source": "/node/167",
+    "destination": "/raksts/cambridge-english-macibu-process",
+    "permanent": true
+  },
+  {
+    "source": "/node/166",
+    "destination": "/raksts/cambridge-english-eksamens",
+    "permanent": true
+  },
+  {
+    "source": "/node/358",
+    "destination": "/raksts/2627macg-dzejas-menesis-barona-filiale",
+    "permanent": true
+  },
+  {
+    "source": "/node/355",
+    "destination": "/raksts/2627mg-lasisanas-nedela-gregora-filiale",
+    "permanent": true
+  },
+  {
+    "source": "/node/352",
+    "destination": "/raksts/signalvelesanas-2627macibu-gada",
+    "permanent": true
+  },
+  {
+    "source": "/node/332",
+    "destination": "/raksts/literatura-ii-kursa-ietvaros-barona-filiale-viesos-rezisors-rvaivars",
+    "permanent": true
+  },
+  {
+    "source": "/node/316",
+    "destination": "/raksts/2526macg-barona-filiale-pie-vidusskoleniem-viesos-arsts-asivins",
+    "permanent": true
+  },
+  {
+    "source": "/node/309",
+    "destination": "/raksts/2526macibu-gads-barona-filiale-tiksanas-ar-aktieri-i-kniploku",
+    "permanent": true
+  },
+  {
+    "source": "/node/304",
+    "destination": "/raksts/2526macibu-gads-barona-filiale-viesos-aktieris-meinards-liepins",
+    "permanent": true
+  },
+  {
+    "source": "/node/306",
+    "destination": "/raksts/2526macibu-gads-barona-filiale-kursa-kulturas-kanons-ietvaros-viesos-regina-devite",
+    "permanent": true
+  },
+  {
+    "source": "/node/307",
+    "destination": "/raksts/2526macibu-gads-vidusskoleni-tiekas-ar-aktrisi-sanitu-paulu-sarunas-par-antigoni",
+    "permanent": true
+  },
+  {
+    "source": "/node/308",
+    "destination": "/raksts/2526macibu-gads-tiksanas-barona-filiale-ar-profl-balodi",
+    "permanent": true
+  },
+  {
+    "source": "/node/305",
+    "destination": "/raksts/2526macibu-gads-februaris-reinis-dzudzilo",
+    "permanent": true
+  },
+  {
+    "source": "/node/295",
+    "destination": "/raksts/2526macg-barona-filiale-12klase-izzina-raina-induli-un-ariju",
+    "permanent": true
+  },
+  {
+    "source": "/node/294",
+    "destination": "/raksts/2526macg-barona-filiale-pie-11klases-viesos-valmieras-teatra-aktieris-krisjanis-strods",
+    "permanent": true
+  },
+  {
+    "source": "/node/293",
+    "destination": "/raksts/2526macg-barona-filiale-valmieras-teatra-aktieris-aksels-aizkalns",
+    "permanent": true
+  },
+  {
+    "source": "/node/292",
+    "destination": "/raksts/2526macg-barona-filiale-12klases-inzenieru-kurss-par-arhitekturu-saruna-ar-ilonu-vaivadi",
+    "permanent": true
+  },
+  {
+    "source": "/node/291",
+    "destination": "/raksts/2526macg-barona-filiale-12klase-tiekas-ar-dzejnieci-maru-ulmi",
+    "permanent": true
+  },
+  {
+    "source": "/node/290",
+    "destination": "/raksts/2526macg-barona-filiale-7klase-satiek-teatri-skola",
+    "permanent": true
+  },
+  {
+    "source": "/node/289",
+    "destination": "/raksts/2526macg-barona-filiale-viesos-aktieris-un-dzejnieks-andris-bulis",
+    "permanent": true
+  },
+  {
+    "source": "/node/287",
+    "destination": "/raksts/2526macg-septembris-barona-filiale",
+    "permanent": true
+  },
+  {
+    "source": "/node/297",
+    "destination": "/raksts/atverto-durvju-dienas-toposajai-7-klasei",
+    "permanent": true
+  },
+  {
+    "source": "/node/259",
+    "destination": "/raksts/atverto-durvju-dienas-7-10-aprili-krbarona-iela-20",
+    "permanent": true
+  },
+  {
+    "source": "/node/260",
+    "destination": "/raksts/steam-atvertas-durvis",
+    "permanent": true
+  },
+  {
+    "source": "/node/257",
+    "destination": "/raksts/atverto-durvju-dienas-toposajai-7klasei-krbarona-iela-20",
+    "permanent": true
+  },
+  {
+    "source": "/node/253",
+    "destination": "/raksts/atverto-durvju-dienas-2425mg-decembri-kr-barona-ielas-filiale",
+    "permanent": true
+  },
+  {
+    "source": "/node/243",
+    "destination": "/raksts/oktobri-atverto-durvju-dienas-1-6kl-gregora-iela-13a",
+    "permanent": true
+  },
+  {
+    "source": "/node/242",
+    "destination": "/raksts/oktobri-atverto-durvju-dienas-7-12kl-krbarona-iela-20",
+    "permanent": true
+  },
+  {
+    "source": "/node/225",
+    "destination": "/raksts/pieteiksanas-uz-10klasi-2425mg",
+    "permanent": true
+  },
+  {
+    "source": "/node/224",
+    "destination": "/raksts/pieteiksanas-uz-7klasi-2425mg",
+    "permanent": true
+  },
+  {
+    "source": "/node/214",
+    "destination": "/raksts/atverto-durvju-dienas-2425mg-7klases-skoleniem-atskats",
+    "permanent": true
+  },
+  {
+    "source": "/node/215",
+    "destination": "/raksts/atverto-durvju-dienas-krbarona-skolas-filiale-7-12-klase-27032024",
+    "permanent": true
+  },
+  {
+    "source": "/node/220",
+    "destination": "/raksts/atverto-durvju-dienas-gregora-skolas-filiale-1-6-klase-atskats-0",
+    "permanent": true
+  },
+  {
+    "source": "/node/216",
+    "destination": "/raksts/atverto-durvju-dienas-gregora-skolas-filiale-1-6-klase",
+    "permanent": true
+  },
+  {
+    "source": "/node/218",
+    "destination": "/raksts/atverto-durvju-diena-toposo-pirmklasnieku-vecakiem-25-012024",
+    "permanent": true
+  },
+  {
+    "source": "/node/217",
+    "destination": "/raksts/atvertas-durvis-gregora-skolas-filiale-1-6-klase-25012024",
+    "permanent": true
+  },
+  {
+    "source": "/node/221",
+    "destination": "/raksts/atverto-durvju-dienas-barona-skolas-filiale-7-12kl",
+    "permanent": true
+  },
+  {
+    "source": "/node/173",
+    "destination": "/raksts/vebinars-par-maksligo-intelektu",
+    "permanent": true
+  },
+  {
+    "source": "/node/172",
+    "destination": "/raksts/patnis-ir-uzsacis-dalibu-oecd-schools-projekta",
+    "permanent": true
+  },
+  {
+    "source": "/node/88",
+    "destination": "/makslu-skola/muzika/pieteiksanas",
+    "permanent": true
+  },
+  {
+    "source": "/node/170",
+    "destination": "/raksts/9-steam-soli",
+    "permanent": true
+  },
+  {
+    "source": "/node/164",
+    "destination": "/raksts/si-gada-steam-temats-maksligais-intelekts",
+    "permanent": true
+  },
+  {
+    "source": "/node/163",
+    "destination": "/raksts/steam-skola-atverto-durvju-diena",
+    "permanent": true
+  },
+  {
+    "source": "/node/149",
+    "destination": "/raksts/zane-ozola-kas-kave-latvijas-izglitibas-attistibu",
+    "permanent": true
+  },
+  {
+    "source": "/node/148",
+    "destination": "/raksts/uznemeju-skolu-direktoru-mentoringa-programma-iesaistijusies-skolu-direktori-no-visas",
+    "permanent": true
+  },
+  {
+    "source": "/node/147",
+    "destination": "/raksts/kristine-lepnane-sabiedriba-spiez-ipaso-bernu-vecakus-ienemt-kara-stavokli",
+    "permanent": true
+  },
+  {
+    "source": "/node/146",
+    "destination": "/raksts/zane-ozola-vai-mums-pietrukst-drosmes-ieklaujosajai-izglitibai",
+    "permanent": true
+  },
+  {
+    "source": "/node/145",
+    "destination": "/raksts/bernu-ar-ipasam-vajadzibam-darbi-apskatami-izstade-makslas-pecpusdiena",
+    "permanent": true
+  },
+  {
+    "source": "/node/15",
+    "destination": "/raksts/privatas-skolas-patnis-dibinataja-zane-ozola-par-klatienes-macibu-atsaksanu",
+    "permanent": true
+  },
+  {
+    "source": "/node/16",
+    "destination": "/raksts/privatas-vidusskolas-patnis-direktore-agnese-putele-par-macibu-uzsaksanu-1-klase",
+    "permanent": true
+  },
+  {
+    "source": "/node/17",
+    "destination": "/raksts/makslu-skolas-kulturas-patnis-direktore-astra-rubene-par-starptautiskas-gimenes-dienas",
+    "permanent": true
+  },
+  {
+    "source": "/node/18",
+    "destination": "/raksts/adazu-pirmsskolas-patnis-izglitibas-metodike-inga-grigaluna-par-ekologiskam-rotallietam",
+    "permanent": true
+  },
+  {
+    "source": "/node/19",
+    "destination": "/raksts/marupes-pirmsskolas-patnis-izglitibas-metodike-ieva-haselbauma-par-montesori-metodiku",
+    "permanent": true
+  },
+  {
+    "source": "/node/20",
+    "destination": "/raksts/patnis-pirmsskolas-ziedondarzins-vaditaja-rudite-zilajeva-par-fiziskajam-aktivitatem-svaiga",
+    "permanent": true
+  },
+  {
+    "source": "/node/21",
+    "destination": "/raksts/bernudarza-patnis-lapu-ielas-vaditaja-elina-kazanova-par-saimes-grupam",
+    "permanent": true
+  },
+  {
+    "source": "/node/22",
+    "destination": "/raksts/adazu-pirmsskolas-patnis-vaditaja-klinta-gangnuse-par-berniem-ka-zalajiem-agentiem-gimenes",
+    "permanent": true
+  },
+  {
+    "source": "/node/23",
+    "destination": "/raksts/privatas-vidusskolas-un-bernudarzu-patnis-valdes-locekle-inguna-vartina-par-dezurgrupu",
+    "permanent": true
+  },
+  {
+    "source": "/node/24",
+    "destination": "/raksts/privatas-vidusskolas-un-bernudarzu-patnis-valdes-locekle-inguna-vartina-par-pedagogu",
+    "permanent": true
+  },
+  {
+    "source": "/node/25",
+    "destination": "/raksts/makslu-skolas-kulturas-patnis-zimejumu-akcija-mediku-atbalstam",
+    "permanent": true
+  },
+  {
+    "source": "/node/26",
+    "destination": "/raksts/privatas-vidusskolas-patnis-muzikas-skolotajas-elzas-ozolas-ieteikumi-ka-radosi-apgut-muziku",
+    "permanent": true
+  },
+  {
+    "source": "/node/27",
+    "destination": "/raksts/privatas-skolas-patnis-dibinataja-zane-ozola-par-pedagogu-darbu-pandemijas-laika",
+    "permanent": true
+  },
+  {
+    "source": "/node/28",
+    "destination": "/raksts/privatas-vidusskolas-un-bernudarzu-patnis-valdes-locekle-inguna-vartina-par-atbalstu",
+    "permanent": true
+  },
+  {
+    "source": "/node/288",
+    "destination": "/raksts/2526macg-tiksanas-ar-personibu-barona-filiale",
+    "permanent": true
+  },
+  {
+    "source": "/node/285",
+    "destination": "/raksts/2526macg-oktobris-barona-filiale",
+    "permanent": true
+  },
+  {
+    "source": "/node/278",
+    "destination": "/raksts/2425macibu-gads-junijs-ce-rezultati",
+    "permanent": true
+  },
+  {
+    "source": "/node/277",
+    "destination": "/raksts/2425macibu-gadsmaijs",
+    "permanent": true
+  },
+  {
+    "source": "/node/276",
+    "destination": "/raksts/2425macg-aprilis-barona-filiale-tiksanas-ar-rakstnieku-jani-jonevu",
+    "permanent": true
+  },
+  {
+    "source": "/node/275",
+    "destination": "/raksts/2425macg-aprilis-barona-filiale-tiksanas-ar-literatu-akselu-hirsu",
+    "permanent": true
+  },
+  {
+    "source": "/node/274",
+    "destination": "/raksts/2425macg-aprilis-barona-filiale-tiksanas-ar-dziedataju-anci-krauzi",
+    "permanent": true
+  },
+  {
+    "source": "/node/273",
+    "destination": "/raksts/2425macg-aprilis-barona-filiale-tiksanas-ar-rezisoru-valteru-sili",
+    "permanent": true
+  },
+  {
+    "source": "/node/271",
+    "destination": "/raksts/2425macg-aprilis-gregora-filiale",
+    "permanent": true
+  },
+  {
+    "source": "/node/269",
+    "destination": "/raksts/2425macg-marts-un-teatris",
+    "permanent": true
+  },
+  {
+    "source": "/node/263",
+    "destination": "/raksts/2425macibu-gadsmarts",
+    "permanent": true
+  },
+  {
+    "source": "/node/266",
+    "destination": "/raksts/2425macibu-gads-basketbols",
+    "permanent": true
+  },
+  {
+    "source": "/node/258",
+    "destination": "/raksts/2425macg-februaris",
+    "permanent": true
+  },
+  {
+    "source": "/node/256",
+    "destination": "/raksts/2425macibu-gadsjanvaris",
+    "permanent": true
+  },
+  {
+    "source": "/node/251",
+    "destination": "/raksts/2425macibu-gadsdecembris",
+    "permanent": true
+  },
+  {
+    "source": "/node/250",
+    "destination": "/raksts/2425macg-novembris",
+    "permanent": true
+  },
+  {
+    "source": "/node/244",
+    "destination": "/raksts/2425macg-oktobris",
+    "permanent": true
+  },
+  {
+    "source": "/node/241",
+    "destination": "/raksts/2425macibu-gadsseptembris",
+    "permanent": true
+  },
+  {
+    "source": "/node/190",
+    "destination": "/raksts/20222023macibu-gads",
+    "permanent": true
+  },
+  {
+    "source": "/node/229",
+    "destination": "/raksts/20232024macibu-gads-maijs-un-vacu-valoda",
+    "permanent": true
+  },
+  {
+    "source": "/node/227",
+    "destination": "/raksts/20232024macibu-gads-maijs",
+    "permanent": true
+  },
+  {
+    "source": "/node/223",
+    "destination": "/raksts/20232024macibu-gads-aprilis",
+    "permanent": true
+  },
+  {
+    "source": "/node/205",
+    "destination": "/raksts/20232024macibu-gads-marts",
+    "permanent": true
+  },
+  {
+    "source": "/node/199",
+    "destination": "/raksts/20232024macibu-gads-februaris",
+    "permanent": true
+  },
+  {
+    "source": "/node/197",
+    "destination": "/raksts/20232024macibu-gadsjanvaris",
+    "permanent": true
+  },
+  {
+    "source": "/node/183",
+    "destination": "/raksts/20232024macibu-gadsdecembris",
+    "permanent": true
+  },
+  {
+    "source": "/node/193",
+    "destination": "/raksts/20232024macibu-gads-novembris",
+    "permanent": true
+  },
+  {
+    "source": "/node/192",
+    "destination": "/raksts/20232024macibu-gads-oktobris",
+    "permanent": true
+  },
+  {
+    "source": "/node/191",
+    "destination": "/raksts/20232024macibu-gads-septembris",
+    "permanent": true
+  },
+  {
+    "source": "/node/189",
+    "destination": "/raksts/20212022macibu-gads",
+    "permanent": true
+  },
+  {
+    "source": "/pirmsskola/gregora-iela-old",
+    "destination": "/pirmsskola/gregora-iela",
+    "permanent": true
+  },
+  {
+    "source": "/pirmsskola/adazos-legacy",
+    "destination": "/pirmsskola/adazos",
+    "permanent": true
+  },
+  {
+    "source": "/pieteikties-skolai",
+    "destination": "/skola/pieteiksanas",
+    "permanent": true
+  }
+]
