@@ -1,54 +1,57 @@
 # Claude Code prompts for patnis-web
 
-Paste these into Claude Code on your computer. Do the "You" steps first; they need a browser login.
+The code is in <https://github.com/elviskvalbergs/patnis-web> (moved from `sample_app/patnis`). Setup runs in a
+Claude Code **cloud session**: API tokens replace the browser logins, so no computer is needed.
 
-## 0. You (browser, ~10 min)
+## 0. You (phone or browser, ~10 min)
 
-1. **Bitbucket:** create an empty repo `patnis-web` (no README, no .gitignore) in your workspace. Copy its SSH URL.
-2. **Sanity:** in <https://www.sanity.io/manage>, in your agency organization, create a project **Patnis** with dataset `production`, visibility **public**. Copy the project ID.
-3. **Vercel:** make sure your Vercel account/team is connected to Bitbucket (Vercel → Account Settings → Authentication/Git). It's needed once, for auto-deploys from Bitbucket.
+1. **Sanity** (<https://www.sanity.io/manage>, agency organization): **Create new project** → name **Patnis**,
+   dataset `production`, visibility **public**. If it offers a Studio template or "create a studio", skip it:
+   the Studio is already in this repo (`/studio`). Then in the project: **API → Tokens → Add API token**,
+   permission **Editor**. Copy the project ID and the token.
+2. **Vercel** (<https://vercel.com/account/tokens>): create a token scoped to your team, expiry ~7 days.
+   Check that the Vercel GitHub app can access `patnis-web` (GitHub → Settings → Applications → Vercel).
+3. **Claude cloud environment** (environment menu in the session title bar → Edit), add:
+   - secret `SANITY_AUTH_TOKEN` = the Sanity token
+   - secret `VERCEL_TOKEN` = the Vercel token
+   - variable `NEXT_PUBLIC_SANITY_PROJECT_ID` = the project ID
 
-## 1. Move to Bitbucket + set up (prompt)
+   Never paste tokens into the chat. Secrets load in **new** sessions only: start a fresh session on the
+   `patnis-web` repo for the next step.
 
-Run this in an empty working folder (e.g. `~/dev`). Replace the two placeholders.
+## 1. Set up and deploy (prompt, in the new cloud session)
 
 ```text
-Set up the patnis-web project from the migration kit.
+Set up and deploy patnis-web. Read CLAUDE.md and HANDOFF.md first.
+Auth comes from env: SANITY_AUTH_TOKEN (Sanity CLI reads it), VERCEL_TOKEN (pass as --token to the Vercel CLI),
+NEXT_PUBLIC_SANITY_PROJECT_ID. Never print token values or write them to committed files.
 
-BITBUCKET_URL = git@bitbucket.org:<workspace>/patnis-web.git
-SANITY_PROJECT_ID = <id>
-
-1. Export the kit with history into its own repo:
-   git clone --branch claude/drupal-replacement-cms-btwy77 https://github.com/elviskvalbergs/sample_app.git /tmp/patnis-src
-   cd /tmp/patnis-src && git subtree split --prefix=patnis -b patnis-main
-   mkdir -p ./patnis-web && cd ./patnis-web && git init -b main && git pull /tmp/patnis-src patnis-main
-   git remote add origin $BITBUCKET_URL && git push -u origin main
-2. In the new repo, fix paths in HANDOFF.md and web/README.md: the repo root is now the old `patnis/`
-   folder, so "patnis/web" becomes "web". Commit.
-3. In web/: npm ci. Create .env.local from .env.example with NEXT_PUBLIC_SANITY_PROJECT_ID set, and
-   SANITY_REVALIDATE_SECRET = output of `openssl rand -hex 32`. Do not commit it; check it is gitignored.
-4. Ask me to run `! npx sanity login` (browser). Then:
-   npx sanity cors add http://localhost:3000 --credentials -y
-   npx tsx scripts/check-import.ts           (must print OK)
+1. In web/: npm ci. Create .env.local from .env.example with the project ID and
+   SANITY_REVALIDATE_SECRET = `openssl rand -hex 32` (gitignored; keep the value for steps 4 and 6).
+2. Sanity: npx tsx scripts/check-import.ts (must print OK), then
    npx sanity dataset import ../import/patnis.ndjson production
-   Report the import result, including failed assets if any.
-5. npm run build, then start npm run dev and screenshot /, /skola, /skola/steam, one article and
-   /studio with Playwright. Show me the screenshots.
-6. Vercel (CLI is logged in): from web/, `vercel link` to a new project "patnis-web". Add env vars
-   NEXT_PUBLIC_SANITY_PROJECT_ID, NEXT_PUBLIC_SANITY_DATASET=production, NEXT_PUBLIC_SITE_URL=https://patnis.lv,
-   SANITY_REVALIDATE_SECRET (same value as .env.local) for production, preview and development.
-   Connect the Bitbucket repo (`vercel git connect`) and set the project Root Directory to `web`;
-   if the CLI can't set Root Directory, tell me exactly where to click. Deploy with `vercel --prod`.
-7. npx sanity cors add https://<the vercel production domain> --credentials -y
-8. Print what I still have to do by hand: the two Sanity webhooks from HANDOFF.md with the exact URL
-   and the secret to paste, and the Vercel deploy hook. Never print the secret into a file that gets committed.
+   Report the result, including any assets that failed to download.
+3. npm run build. Start npm run dev and screenshot /, /pirmsskola, /skola/steam, one article and /studio
+   with Playwright; show me.
+4. Vercel with --token "$VERCEL_TOKEN": create/link project "patnis-web" from web/, Root Directory `web`
+   (use the Vercel REST API if the CLI can't set it), connect the GitHub repo elviskvalbergs/patnis-web,
+   add env vars NEXT_PUBLIC_SANITY_PROJECT_ID, NEXT_PUBLIC_SANITY_DATASET=production,
+   NEXT_PUBLIC_SITE_URL=https://patnis.lv and SANITY_REVALIDATE_SECRET for production, preview and development.
+   Deploy with `vercel --prod`.
+5. npx sanity cors add https://<the vercel production domain> --credentials -y
+6. Webhooks via the Sanity API (token from env): "Revalidate site" → https://<domain>/api/revalidate,
+   all documents, create/update/delete, secret = SANITY_REVALIDATE_SECRET. Create a Vercel deploy hook for
+   main and a second Sanity webhook for _type == "redirect" pointing to it. If an API refuses, tell me the
+   exact clicks instead.
+7. Report the production URL and what is left for me.
 ```
 
-## 2. You (browser, ~5 min)
+## 2. You (~5 min)
 
-- Sanity → API → Webhooks: create the two webhooks Claude printed (revalidate + redeploy on redirects).
+- Open the Vercel URL and `/studio` (log in with your Sanity account) and check that it works.
 - Sanity → Members: invite the school's editors once the move check is approved.
 - DNS switch to Vercel only after the move check (section 4) and the school's OK on the preview URL.
+- When live: revoke the Vercel token (and the Sanity token, if no further cloud work is planned).
 
 ## 3. Optional: Sanity MCP for Claude Code
 
@@ -59,8 +62,8 @@ redesign later):
 claude mcp add --transport http sanity https://mcp.sanity.io
 ```
 
-Then run `/mcp` in Claude Code to log in. Without it, Claude can still write content with the Sanity CLI,
-using your CLI login. No API tokens are needed for either route. Check the current MCP URL in Sanity's docs if
+Then run `/mcp` in Claude Code to log in. Without it, Claude can still write content with the Sanity CLI
+(with `SANITY_AUTH_TOKEN` in a cloud session, or your CLI login locally). Check the current MCP URL in Sanity's docs if
 this one fails.
 
 ## 4. Move check (prompt): the scope the school asked for

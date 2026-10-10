@@ -32,7 +32,7 @@ Documents can be an uploaded file **or** a link to another source (`downloadItem
 
 ## Your steps
 
-Run everything from `patnis/web`.
+Run everything from `web/`. To do the setup from a Claude Code cloud session (no computer), follow `docs/CLAUDE-CODE-PROMPTS.md` sections 0–1: API tokens replace the logins below.
 
 ### 1. Sanity project (about 5 min)
 
@@ -63,7 +63,7 @@ Then `npm run dev` and open <http://localhost:3000> and <http://localhost:3000/s
 
 ### 3. Vercel
 
-1. New project from the repo. **Root Directory: `patnis/web`** (or the repo root if you move `web/` into its own repo, which I'd recommend: this branch lives in `sample_app`).
+1. New project from the GitHub repo `elviskvalbergs/patnis-web`. **Root Directory: `web`**.
 2. Environment variables: `NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET=production`, `NEXT_PUBLIC_SITE_URL=https://patnis.lv`, `SANITY_REVALIDATE_SECRET`.
 3. Deploy, then allow the Studio on the Vercel domain:
    `npx sanity cors add https://<project>.vercel.app --credentials` (and later `https://patnis.lv`).
