@@ -63,7 +63,7 @@ Then `npm run dev` and open <http://localhost:3000> and <http://localhost:3000/s
 
 ### 3. Vercel
 
-1. New project from the GitHub repo `elviskvalbergs/patnis-web`. **Root Directory: `web`**.
+1. New project from the GitHub repo `elviskvalbergs-lab/patnis-web`. **Root Directory: `web`**.
 2. Environment variables: `NEXT_PUBLIC_SANITY_PROJECT_ID`, `NEXT_PUBLIC_SANITY_DATASET=production`, `NEXT_PUBLIC_SITE_URL=https://patnis.lv`, `SANITY_REVALIDATE_SECRET`.
 3. Deploy, then allow the Studio on the Vercel domain:
    `npx sanity cors add https://<project>.vercel.app --credentials` (and later `https://patnis.lv`).

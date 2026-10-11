@@ -1,6 +1,6 @@
 # Claude Code prompts for patnis-web
 
-The code is in <https://github.com/elviskvalbergs/patnis-web> (moved from `sample_app/patnis`). Setup runs in a
+The code is in <https://github.com/elviskvalbergs-lab/patnis-web> (moved from `sample_app/patnis`). Setup runs in a
 Claude Code **cloud session**: API tokens replace the browser logins, so no computer is needed.
 
 ## 0. You (phone or browser, ~10 min)
@@ -34,7 +34,7 @@ NEXT_PUBLIC_SANITY_PROJECT_ID. Never print token values or write them to committ
 3. npm run build. Start npm run dev and screenshot /, /pirmsskola, /skola/steam, one article and /studio
    with Playwright; show me.
 4. Vercel with --token "$VERCEL_TOKEN": create/link project "patnis-web" from web/, Root Directory `web`
-   (use the Vercel REST API if the CLI can't set it), connect the GitHub repo elviskvalbergs/patnis-web,
+   (use the Vercel REST API if the CLI can't set it), connect the GitHub repo elviskvalbergs-lab/patnis-web,
    add env vars NEXT_PUBLIC_SANITY_PROJECT_ID, NEXT_PUBLIC_SANITY_DATASET=production,
    NEXT_PUBLIC_SITE_URL=https://patnis.lv and SANITY_REVALIDATE_SECRET for production, preview and development.
    Deploy with `vercel --prod`.
